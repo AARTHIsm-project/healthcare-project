@@ -17,8 +17,8 @@ pipeline {
     stage('Install & Test') {
       steps {
         dir('backend') {
-          sh 'npm install'
-          sh 'npm test || echo "No tests defined yet"'
+          bat 'npm install'
+          bat 'npm test || echo "No tests defined yet"'
         }
       }
     }
