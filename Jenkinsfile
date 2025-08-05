@@ -34,13 +34,16 @@ pipeline {
 
     stage('Push to DockerHub') {
   steps {
-    script {
-      bat 'docker login -u yourdockerhubusername -p yourdockerhubpassword'
-      bat 'docker tag healthcare-backend yourdockerhubusername/healthcare-backend:latest'
-      bat 'docker push yourdockerhubusername/healthcare-backend:latest'
+    withCredentials([usernamePassword(credentialsId: 'dockerhub-aarthi-id', usernameVariable: 'DOCKERHUB_USER', passwordVariable: 'DOCKERHUB_PASS')]) {
+      script {
+        bat 'docker login -u %DOCKERHUB_USER% -p %DOCKERHUB_PASS%'
+        bat 'docker tag healthcare-backend %DOCKERHUB_USER%/healthcare-backend:latest'
+        bat 'docker push %DOCKERHUB_USER%/healthcare-backend:latest'
+      }
     }
   }
 }
+
 
 
     stage('Deploy') {
