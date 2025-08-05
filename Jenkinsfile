@@ -33,15 +33,15 @@ pipeline {
 
 
     stage('Push to DockerHub') {
-      steps {
-        script {
-          docker.withRegistry('https://index.docker.io/v1/', CREDENTIALS_ID) {
-            dockerImage.push()
-            dockerImage.push("latest")
-          }
-        }
-      }
+  steps {
+    script {
+      bat 'docker login -u yourdockerhubusername -p yourdockerhubpassword'
+      bat 'docker tag healthcare-backend yourdockerhubusername/healthcare-backend:latest'
+      bat 'docker push yourdockerhubusername/healthcare-backend:latest'
     }
+  }
+}
+
 
     stage('Deploy') {
       steps {
