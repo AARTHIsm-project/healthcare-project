@@ -10,7 +10,7 @@ pipeline {
   stages {
     stage('Checkout Code') {
       steps {
-        git 'https://github.com/AARTHIsm-project/healthcare-project'
+        git branch: 'main', url: 'https://github.com/AARTHIsm-project/healthcare-project'
       }
     }
 
