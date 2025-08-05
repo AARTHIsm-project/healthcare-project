@@ -24,12 +24,13 @@ pipeline {
     }
 
     stage('Build Docker Image') {
-      steps {
-        script {
-          dockerImage = docker.build("${IMAGE_NAME}:${BUILD_NUMBER}", 'backend')
-        }
-      }
+  steps {
+    dir('backend') {
+      bat 'docker build -t healthcare-backend .'
     }
+  }
+}
+
 
     stage('Push to DockerHub') {
       steps {
