@@ -3,14 +3,14 @@ pipeline {
   agent any
 
   environment {
-    IMAGE_NAME = 'yourdockerhubusername/healthcare-app'
-    CREDENTIALS_ID = 'dockerhub-credentials-id'
+    IMAGE_NAME = 'aarthidevops/healthcare-app'
+    CREDENTIALS_ID = 'dockerhub-aarthi-id'
   }
 
   stages {
     stage('Checkout Code') {
       steps {
-        git 'https://github.com/yourusername/healthcare-app.git'
+        git 'https://github.com/AARTHIsm-project/healthcare-project'
       }
     }
 
