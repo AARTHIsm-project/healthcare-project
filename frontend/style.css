@@ -1,0 +1,18 @@
+
+body {
+  font-family: sans-serif;
+  margin: 40px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+input, button {
+  margin: 8px 0;
+  padding: 10px;
+}
+#response, #appointmentResponse {
+  margin-top: 20px;
+  font-weight: bold;
+}
